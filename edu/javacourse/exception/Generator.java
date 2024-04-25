@@ -2,7 +2,7 @@ package edu.javacourse.exception;
 
 public class Generator
 {
-    public String helloMessage(String name) throws SimpleException
+    public String helloMessage(String name) throws SimpleException, FirstException, SecondException
     {
         if (name == null)
         {
@@ -11,6 +11,16 @@ public class Generator
 
             // Можно совместить создание и кидание исключения
             // throw new SimpleException(10, "Message is null");
+        }
+
+        if ("FIRST".equals(name))
+        {
+            throw new FirstException("FirstException occured");
+        }
+
+        if ("SECOND".equals(name))
+        {
+            throw new SecondException("SecondException occured");
         }
 
         return "Hello, " + name;
